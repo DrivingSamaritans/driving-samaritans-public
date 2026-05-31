@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.0178abbb.css",
-    "main.js": "/static/js/main.b2f5456d.js",
+    "main.js": "/static/js/main.2ed047ec.js",
     "static/media/logo.png": "/static/media/logo.ba439114ec9786571a0d.png",
     "static/media/driver-light-map.png": "/static/media/driver-light-map.a3210b8d4f4be2f9462d.png",
     "static/media/driver-dark-map.png": "/static/media/driver-dark-map.6f9d85700c8da2bf1019.png",
@@ -14,6 +14,6 @@
   },
   "entrypoints": [
     "static/css/main.0178abbb.css",
-    "static/js/main.b2f5456d.js"
+    "static/js/main.2ed047ec.js"
   ]
 }
