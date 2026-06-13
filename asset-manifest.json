@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.afdad1cd.css",
-    "main.js": "/static/js/main.d69b3609.js",
+    "main.js": "/static/js/main.5c0249cb.js",
     "static/media/logo.png": "/static/media/logo.ba439114ec9786571a0d.png",
-    "static/media/driver-light-map.png": "/static/media/driver-light-map.a3210b8d4f4be2f9462d.png",
     "static/media/logo-white-bg.png": "/static/media/logo-white-bg.cb0dc807a88e6f89139a.png",
-    "static/media/rider-dashboard.png": "/static/media/rider-dashboard.387c9ae3c43d20496e36.png",
+    "static/media/driver-light-map.png": "/static/media/driver-light-map.081cb517db127a801a9a.png",
+    "static/media/rider-dashboard.png": "/static/media/rider-dashboard.9e9247b3ebbb0ed963a3.png",
     "static/media/events.png": "/static/media/events.eea03da55e2af2bc3851.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
     "static/css/main.afdad1cd.css",
-    "static/js/main.d69b3609.js"
+    "static/js/main.5c0249cb.js"
   ]
 }
