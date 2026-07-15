@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ed18553d.css",
-    "main.js": "/static/js/main.2228fdc6.js",
+    "main.css": "/static/css/main.76cc1b66.css",
+    "main.js": "/static/js/main.1882e7bf.js",
     "static/media/logo.png": "/static/media/logo.01b1fb5ef8f2df2b2fef.png",
     "static/media/logo-no-bg.png": "/static/media/logo-no-bg.d452ca49c332173b8dbe.png",
     "static/media/driver-light-map.png": "/static/media/driver-light-map.3c1782975b9a12f7a7ed.png",
@@ -10,7 +10,7 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.ed18553d.css",
-    "static/js/main.2228fdc6.js"
+    "static/css/main.76cc1b66.css",
+    "static/js/main.1882e7bf.js"
   ]
 }
