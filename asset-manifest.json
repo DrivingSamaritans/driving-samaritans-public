@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.76cc1b66.css",
-    "main.js": "/static/js/main.f6f64cc0.js",
+    "main.js": "/static/js/main.c7097730.js",
     "static/media/logo.png": "/static/media/logo.01b1fb5ef8f2df2b2fef.png",
     "static/media/logo-no-bg.png": "/static/media/logo-no-bg.d452ca49c332173b8dbe.png",
     "static/media/driver-light-map.png": "/static/media/driver-light-map.3c1782975b9a12f7a7ed.png",
@@ -11,6 +11,6 @@
   },
   "entrypoints": [
     "static/css/main.76cc1b66.css",
-    "static/js/main.f6f64cc0.js"
+    "static/js/main.c7097730.js"
   ]
 }
