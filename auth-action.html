@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Driving Samaritans — Account</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F7F2EA;
+      --charcoal: #24312F;
+      --slate: #5F6F69;
+      --coral: #B87963;
+      --coral-dark: #A5644E;
+      --blue: #587C8C;
+      --mint: #7D927D;
+      --error: #B3402A;
+      --border: #DEDBD4;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--charcoal);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+    .wordmark {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      letter-spacing: 0.5px;
+      margin-bottom: 28px;
+      text-decoration: none;
+      color: var(--charcoal);
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 430px;
+      box-shadow: 0 4px 24px rgba(36, 49, 47, 0.06);
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    p { font-size: 15px; line-height: 1.6; color: var(--slate); margin-bottom: 8px; }
+    p strong { color: var(--charcoal); }
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--slate);
+      margin: 20px 0 8px;
+    }
+    input[type="password"] {
+      width: 100%;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--cream);
+      color: var(--charcoal);
+      outline: none;
+    }
+    input[type="password"]:focus { border-color: var(--coral); background: #fff; }
+    button {
+      width: 100%;
+      margin-top: 24px;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background: var(--coral);
+      border: none;
+      border-radius: 12px;
+      padding: 15px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    button:hover { background: var(--coral-dark); }
+    button:disabled { opacity: 0.6; cursor: default; }
+    .msg-error {
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--error);
+      background: rgba(179, 64, 42, 0.08);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: none;
+    }
+    .badge {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      font-size: 26px;
+      background: rgba(125, 146, 125, 0.15);
+    }
+    .badge.err { background: rgba(179, 64, 42, 0.1); }
+    .spinner {
+      width: 32px; height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--coral);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 8px auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .hint { font-size: 13px; color: var(--slate); margin-top: 20px; }
+    .footer { margin-top: 28px; font-size: 13px; color: var(--slate); }
+    .footer a { color: var(--blue); }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <a class="wordmark" href="https://drivingsamaritans.com">Driving Samaritans</a>
+
+  <div class="card">
+    <!-- Loading -->
+    <div id="view-loading">
+      <div class="spinner"></div>
+      <p style="text-align:center;">One moment&hellip;</p>
+    </div>
+
+    <!-- Password reset form -->
+    <div id="view-reset" class="hidden">
+      <h1>Choose a new password</h1>
+      <p>for <strong id="reset-email"></strong></p>
+      <form id="reset-form">
+        <label for="new-password">New password</label>
+        <input type="password" id="new-password" autocomplete="new-password" minlength="6" required />
+        <label for="confirm-password">Confirm password</label>
+        <input type="password" id="confirm-password" autocomplete="new-password" minlength="6" required />
+        <div class="msg-error" id="reset-error"></div>
+        <button type="submit" id="reset-submit">Save new password</button>
+      </form>
+      <p class="hint">Passwords must be at least 6 characters.</p>
+    </div>
+
+    <!-- Success -->
+    <div id="view-success" class="hidden">
+      <div class="badge">&#10003;</div>
+      <h1 id="success-title">All set</h1>
+      <p id="success-body"></p>
+    </div>
+
+    <!-- Error -->
+    <div id="view-error" class="hidden">
+      <div class="badge err">&#33;</div>
+      <h1>This link isn&rsquo;t valid anymore</h1>
+      <p id="error-body">The link may have expired or already been used.</p>
+      <p class="hint" id="error-hint"></p>
+    </div>
+  </div>
+
+  <p class="footer">Need help? <a href="mailto:support@drivingsamaritans.com">support@drivingsamaritans.com</a></p>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+    import {
+      getAuth,
+      verifyPasswordResetCode,
+      confirmPasswordReset,
+      applyActionCode,
+    } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+    const app = initializeApp({
+      apiKey: "AIzaSyAfO5-yH3pg3V5ut3zZdpx9B2EXDOWOnEE",
+      authDomain: "churchtransit.firebaseapp.com",
+      projectId: "churchtransit",
+    });
+    const auth = getAuth(app);
+
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get("mode");
+    const oobCode = params.get("oobCode");
+
+    const views = ["loading", "reset", "success", "error"];
+    function show(name) {
+      for (const v of views) {
+        document.getElementById("view-" + v).classList.toggle("hidden", v !== name);
+      }
+    }
+    function showSuccess(title, body) {
+      document.getElementById("success-title").textContent = title;
+      document.getElementById("success-body").textContent = body;
+      show("success");
+    }
+    function showError(body, hint) {
+      if (body) document.getElementById("error-body").textContent = body;
+      if (hint) document.getElementById("error-hint").textContent = hint;
+      show("error");
+    }
+
+    async function handleResetPassword() {
+      let email;
+      try {
+        email = await verifyPasswordResetCode(auth, oobCode);
+      } catch (err) {
+        showError(
+          "This password reset link has expired or was already used.",
+          "Open the app and tap “Forgot password?” to request a fresh one."
+        );
+        return;
+      }
+
+      document.getElementById("reset-email").textContent = email;
+      show("reset");
+
+      document.getElementById("reset-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const pw = document.getElementById("new-password").value;
+        const confirm = document.getElementById("confirm-password").value;
+        const errBox = document.getElementById("reset-error");
+        const submit = document.getElementById("reset-submit");
+        errBox.style.display = "none";
+
+        if (pw !== confirm) {
+          errBox.textContent = "Those passwords don’t match — please try again.";
+          errBox.style.display = "block";
+          return;
+        }
+
+        submit.disabled = true;
+        submit.textContent = "Saving…";
+        try {
+          await confirmPasswordReset(auth, oobCode, pw);
+          showSuccess(
+            "Password updated",
+            "Your password has been changed. Return to the Driving Samaritans app and sign in with your new password."
+          );
+        } catch (err) {
+          submit.disabled = false;
+          submit.textContent = "Save new password";
+          errBox.textContent =
+            err.code === "auth/weak-password"
+              ? "That password is too weak — please choose a longer one."
+              : "Something went wrong saving your password. The link may have expired — request a new one from the app.";
+          errBox.style.display = "block";
+        }
+      });
+    }
+
+    async function handleVerifyEmail() {
+      try {
+        await applyActionCode(auth, oobCode);
+        showSuccess(
+          "Email verified",
+          "Thanks for confirming your email. Return to the Driving Samaritans app and sign in to get started."
+        );
+      } catch (err) {
+        showError(
+          "This verification link has expired or was already used.",
+          "If your email still isn’t verified, sign in on the app to request a new verification email."
+        );
+      }
+    }
+
+    async function handleRecoverEmail() {
+      try {
+        await applyActionCode(auth, oobCode);
+        showSuccess(
+          "Email change undone",
+          "Your account email has been restored. If you didn’t request the change, we recommend resetting your password from the app as well."
+        );
+      } catch (err) {
+        showError("This link has expired or was already used.");
+      }
+    }
+
+    if (!mode || !oobCode) {
+      showError(
+        "This page only works from a link in a Driving Samaritans email.",
+        "Open the email we sent you and tap the button again."
+      );
+    } else if (mode === "resetPassword") {
+      handleResetPassword();
+    } else if (mode === "verifyEmail") {
+      handleVerifyEmail();
+    } else if (mode === "recoverEmail") {
+      handleRecoverEmail();
+    } else {
+      showError();
+    }
+  </script>
+</body>
+</html>
