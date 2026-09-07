@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.93604936.css",
-    "main.js": "/static/js/main.126e9484.js",
+    "main.css": "/static/css/main.cc7bd84e.css",
+    "main.js": "/static/js/main.a8ef41e1.js",
     "static/media/logo.png": "/static/media/logo.01b1fb5ef8f2df2b2fef.png",
     "static/media/logo-no-bg.png": "/static/media/logo-no-bg.d452ca49c332173b8dbe.png",
-    "static/media/driver-light-map.png": "/static/media/driver-light-map.3c1782975b9a12f7a7ed.png",
-    "static/media/rider-dashboard.png": "/static/media/rider-dashboard.2ec93ad12dd23e0d4f2b.png",
-    "static/media/events.png": "/static/media/events.b2e88b35fce9e5ff9d35.png",
+    "static/media/drive-map.png": "/static/media/drive-map.3e04020eceda1172a452.png",
+    "static/media/ride-request.png": "/static/media/ride-request.e625be8e5a442af1071a.png",
+    "static/media/activity.png": "/static/media/activity.8c9b8fd418fdc7c1a577.png",
+    "static/media/needs-feed.png": "/static/media/needs-feed.f49aba73c90031827be9.png",
+    "static/media/events.png": "/static/media/events.dd50cdb579b09de4de60.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.93604936.css",
-    "static/js/main.126e9484.js"
+    "static/css/main.cc7bd84e.css",
+    "static/js/main.a8ef41e1.js"
   ]
 }
