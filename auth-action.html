@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex" />
-  <title>Driving Samaritans — Account</title>
+  <title>Driving Samaritans | Account</title>
   <link rel="icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -236,7 +236,7 @@
         errBox.style.display = "none";
 
         if (pw !== confirm) {
-          errBox.textContent = "Those passwords don’t match — please try again.";
+          errBox.textContent = "Those passwords don’t match. Please try again.";
           errBox.style.display = "block";
           return;
         }
@@ -254,8 +254,8 @@
           submit.textContent = "Save new password";
           errBox.textContent =
             err.code === "auth/weak-password"
-              ? "That password is too weak — please choose a longer one."
-              : "Something went wrong saving your password. The link may have expired — request a new one from the app.";
+              ? "That password is too weak. Please choose a longer one."
+              : "Something went wrong saving your password. The link may have expired, so request a new one from the app.";
           errBox.style.display = "block";
         }
       });
