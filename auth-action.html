@@ -29,6 +29,7 @@
       background: var(--cream);
       color: var(--charcoal);
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -47,7 +48,7 @@
       background: #fff;
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 40px 36px;
+      padding: clamp(28px, 7vw, 40px) clamp(20px, 6vw, 36px);
       width: 100%;
       max-width: 430px;
       box-shadow: 0 4px 24px rgba(36, 49, 47, 0.06);
@@ -60,7 +61,8 @@
       margin-bottom: 12px;
     }
     p { font-size: 15px; line-height: 1.6; color: var(--slate); margin-bottom: 8px; }
-    p strong { color: var(--charcoal); }
+    /* The address this reset is for can be longer than a phone is wide. */
+    p strong { color: var(--charcoal); overflow-wrap: anywhere; }
     label {
       display: block;
       font-size: 12px;
@@ -128,7 +130,8 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     .hint { font-size: 13px; color: var(--slate); margin-top: 20px; }
     .footer { margin-top: 28px; font-size: 13px; color: var(--slate); }
-    .footer a { color: var(--blue); }
+    .footer { text-align: center; }
+    .footer a { color: var(--blue); overflow-wrap: anywhere; }
     .hidden { display: none !important; }
   </style>
 </head>
@@ -219,7 +222,7 @@
       } catch (err) {
         showError(
           "This password reset link has expired or was already used.",
-          "Open the app and tap “Forgot password?” to request a fresh one."
+          "Tap “Forgot password?” in the app, or on the billing page, to request a fresh one."
         );
         return;
       }
@@ -247,7 +250,7 @@
           await confirmPasswordReset(auth, oobCode, pw);
           showSuccess(
             "Password updated",
-            "Your password has been changed. Return to the Driving Samaritans app and sign in with your new password."
+            "Your password has been changed. Sign in with it in the Driving Samaritans app, or on the billing page if that is where you came from."
           );
         } catch (err) {
           submit.disabled = false;
