@@ -99,6 +99,13 @@
     }
     button:hover { background: var(--coral-dark); }
     button:disabled { opacity: 0.6; cursor: default; }
+    /* "Continue setting up your church", styled as the page's button. */
+    a.button-link {
+      display: block; box-sizing: border-box; width: 100%; margin-top: 24px;
+      padding: 15px; border-radius: 12px; background: var(--coral-deep);
+      color: #fff; font-weight: 600; text-align: center; text-decoration: none;
+    }
+    a.button-link:hover { background: var(--coral-dark); }
     .msg-error {
       margin-top: 16px;
       font-size: 14px;
@@ -164,6 +171,7 @@
       <div class="badge">&#10003;</div>
       <h1 id="success-title">All set</h1>
       <p id="success-body"></p>
+      <a id="success-link" class="button-link hidden" href="/start">Continue setting up your church</a>
     </div>
 
     <!-- Error -->
@@ -266,10 +274,20 @@
     async function handleVerifyEmail() {
       try {
         await applyActionCode(auth, oobCode);
-        showSuccess(
-          "Email verified",
-          "Thanks for confirming your email. Return to the Driving Samaritans app and sign in to get started."
-        );
+        // Someone setting up a church signed up on the website, not in the
+        // app (requestVerificationEmail adds this; only this fixed value).
+        if (params.get("continue") === "start") {
+          showSuccess(
+            "Email verified",
+            "Thanks for confirming your email. Go back to the page where you signed up, or continue here."
+          );
+          document.getElementById("success-link").classList.remove("hidden");
+        } else {
+          showSuccess(
+            "Email verified",
+            "Thanks for confirming your email. Return to the Driving Samaritans app and sign in to get started."
+          );
+        }
       } catch (err) {
         showError(
           "This verification link has expired or was already used.",
